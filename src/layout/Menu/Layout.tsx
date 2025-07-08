@@ -13,16 +13,16 @@ function Layout() {
     const dispatch = useDispatch<AppDispatch>();
 
     const profile = useSelector((state: RootState) => state.user.profile);
-    const items = useSelector((state: RootState) => state.cart.items)
+    const items = useSelector((state: RootState) => state.cart.items);
 
     useEffect(() => {
-        dispatch(getProfile())
+        dispatch(getProfile());
     }, [dispatch]);
 
     const logout = () => {
-        dispatch(userActions.logout())
+        dispatch(userActions.logout());
         navigate('/auth/login');
-    }
+    };
 
     return <div className={styles.layout}>
         <div className={styles.sidebar}>
@@ -43,7 +43,7 @@ function Layout() {
                 }))}>
                     <img src="/cart-icon.svg" alt="Иконка корзины"/>
                     Корзина
-                    {items.reduce((acc, item) => acc + item.count, 0) }
+                    <span className={styles.cartCount}>{items.reduce((acc, item) => acc + item.count, 0)}</span>
                 </NavLink>
             </div>
             <Button className={styles.exit} onClick={logout}>
