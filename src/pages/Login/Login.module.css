@@ -36,3 +36,9 @@
     color: var(--primary-color);
     text-decoration: none;
 }
+
+.error {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 20px;
+}
