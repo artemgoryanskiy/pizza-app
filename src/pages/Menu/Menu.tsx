@@ -7,7 +7,6 @@ import {type ChangeEvent, useEffect, useState} from 'react';
 import axios, {AxiosError} from 'axios';
 import MenuList from '../../layout/Menu/MenuList/MenuList.tsx';
 
-
 function Menu() {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +14,7 @@ function Menu() {
     const [filter, setFilter] = useState<string>();
 
     useEffect(() => {
-        getMenu(filter)
+        getMenu(filter);
     }, [filter]);
 
     const getMenu = async (name?: string) => {
@@ -36,9 +35,7 @@ function Menu() {
 
     const updateFilter = (e: ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
-    }
-
-
+    };
 
     return <>
         <div className={styles.head}>
@@ -51,7 +48,6 @@ function Menu() {
             {isLoading && <>Загружаем продукты...</>}
             {!isLoading && products.length === 0 && <>Не найдено блюд по запросу</>}
         </div>
-
     </>;
 }
 
